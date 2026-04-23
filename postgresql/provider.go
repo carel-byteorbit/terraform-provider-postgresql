@@ -268,6 +268,7 @@ func getRDSAuthToken(region string, profile string, role string, username string
 		}
 
 		awscfg, err = awsConfig.LoadDefaultConfig(ctx,
+			awsConfig.WithRegion(region),
 			awsConfig.WithCredentialsProvider(
 				aws.NewCredentialsCache(credentials.NewStaticCredentialsProvider(
 					*roleOutput.Credentials.AccessKeyId,
